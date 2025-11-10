@@ -1,0 +1,346 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'MS PGothic', 'MS Gothic', sans-serif;
+    background: #000;
+    color: #fff;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    padding: 20px;
+}
+
+/* 별 배경 애니메이션 */
+.stars, .stars2, .stars3 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.stars {
+    background: transparent url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><circle cx="20" cy="20" r="1" fill="white" opacity="0.8"/><circle cx="50" cy="30" r="1" fill="white" opacity="0.6"/><circle cx="80" cy="10" r="1" fill="white" opacity="0.9"/><circle cx="30" cy="60" r="1" fill="white" opacity="0.7"/><circle cx="70" cy="70" r="1" fill="white" opacity="0.5"/></svg>') repeat;
+    animation: twinkle 3s infinite;
+}
+
+.stars2 {
+    background: transparent url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="150" height="150"><circle cx="40" cy="40" r="1" fill="%23ff00ff" opacity="0.6"/><circle cx="100" cy="60" r="1" fill="%2300ffff" opacity="0.7"/><circle cx="60" cy="100" r="1" fill="%23ffff00" opacity="0.5"/></svg>') repeat;
+    animation: twinkle 4s infinite reverse;
+}
+
+.stars3 {
+    background: transparent url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="80" cy="80" r="1.5" fill="%23ff69b4" opacity="0.8"/><circle cx="150" cy="120" r="1.5" fill="%23ff1493" opacity="0.6"/></svg>') repeat;
+    animation: twinkle 5s infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.title {
+    font-size: 2.5em;
+    color: #ff00ff;
+    text-shadow: 
+        0 0 10px #ff00ff,
+        0 0 20px #ff00ff,
+        0 0 30px #ff00ff,
+        0 0 40px #ff00ff;
+    margin-bottom: 15px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.neon-line {
+    height: 4px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        #00ffff, 
+        #ff00ff, 
+        #ffff00, 
+        #00ffff, 
+        transparent);
+    margin: 20px 0;
+    animation: neon-flow 2s infinite;
+    box-shadow: 0 0 10px #00ffff, 0 0 20px #ff00ff;
+}
+
+@keyframes neon-flow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* 흔들리는 애니메이션 */
+.shake {
+    animation: shake 0.5s infinite;
+}
+
+.shake-slow {
+    animation: shake-slow 2s infinite;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    10% { transform: translate(-2px, -2px) rotate(-1deg); }
+    20% { transform: translate(2px, 2px) rotate(1deg); }
+    30% { transform: translate(-2px, 2px) rotate(-1deg); }
+    40% { transform: translate(2px, -2px) rotate(1deg); }
+    50% { transform: translate(-2px, -2px) rotate(-1deg); }
+    60% { transform: translate(2px, 2px) rotate(1deg); }
+    70% { transform: translate(-2px, 2px) rotate(-1deg); }
+    80% { transform: translate(2px, -2px) rotate(1deg); }
+    90% { transform: translate(-2px, -2px) rotate(-1deg); }
+}
+
+@keyframes shake-slow {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(-1px, -1px); }
+    75% { transform: translate(1px, 1px); }
+}
+
+.content-box {
+    background: linear-gradient(135deg, #1a0033 0%, #330066 50%, #1a0033 100%);
+    border: 4px solid #ff00ff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 
+        0 0 20px #ff00ff,
+        inset 0 0 20px rgba(255, 0, 255, 0.2);
+    position: relative;
+}
+
+.blink-border {
+    animation: blink-border 1.5s infinite;
+}
+
+@keyframes blink-border {
+    0%, 100% { 
+        border-color: #ff00ff;
+        box-shadow: 0 0 20px #ff00ff, inset 0 0 20px rgba(255, 0, 255, 0.2);
+    }
+    50% { 
+        border-color: #00ffff;
+        box-shadow: 0 0 20px #00ffff, inset 0 0 20px rgba(0, 255, 255, 0.2);
+    }
+}
+
+/* 마르퀴 효과 */
+.marquee {
+    background: #000;
+    border: 2px solid #ffff00;
+    padding: 10px;
+    margin-bottom: 25px;
+    overflow: hidden;
+    white-space: nowrap;
+    box-shadow: 0 0 15px #ffff00;
+}
+
+.marquee span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 15s linear infinite;
+    color: #ffff00;
+    font-weight: bold;
+    text-shadow: 0 0 10px #ffff00;
+}
+
+@keyframes marquee {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-100%, 0); }
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.anime-box {
+    background: rgba(0, 0, 0, 0.5);
+    border: 3px solid #00ffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 15px #00ffff;
+}
+
+.anime-box h2 {
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.glow {
+    animation: glow-pulse 2s infinite;
+}
+
+@keyframes glow-pulse {
+    0%, 100% { 
+        text-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+    }
+    50% { 
+        text-shadow: 0 0 20px currentColor, 0 0 30px currentColor, 0 0 40px currentColor;
+    }
+}
+
+.retro-text {
+    color: #ff69b4;
+    line-height: 1.8;
+    font-size: 1.1em;
+    text-shadow: 2px 2px 0px #000;
+}
+
+.anime-list {
+    list-style: none;
+    padding: 0;
+}
+
+.anime-list li {
+    color: #ff1493;
+    padding: 10px;
+    margin: 8px 0;
+    background: rgba(255, 20, 147, 0.1);
+    border-left: 4px solid #ff1493;
+    font-size: 1.2em;
+    text-shadow: 0 0 10px #ff1493;
+}
+
+.diary-entry {
+    background: rgba(255, 105, 180, 0.1);
+    border: 2px dashed #ff69b4;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.footer {
+    margin-top: 30px;
+    text-align: center;
+    padding-top: 20px;
+    border-top: 2px solid #ff00ff;
+}
+
+.blink {
+    animation: blink 1s infinite;
+    color: #ffff00;
+    font-weight: bold;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+.hearts {
+    margin-top: 10px;
+    font-size: 1.5em;
+    animation: float-hearts 3s infinite;
+}
+
+@keyframes float-hearts {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* 떠다니는 요소들 */
+.floating-elements {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.float {
+    position: absolute;
+    color: #ff00ff;
+    font-size: 2em;
+    animation: float 10s infinite;
+    text-shadow: 0 0 10px currentColor;
+}
+
+.float:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+    animation-duration: 8s;
+}
+
+.float:nth-child(2) {
+    left: 30%;
+    animation-delay: 2s;
+    animation-duration: 10s;
+}
+
+.float:nth-child(3) {
+    left: 50%;
+    animation-delay: 4s;
+    animation-duration: 12s;
+}
+
+.float:nth-child(4) {
+    left: 70%;
+    animation-delay: 1s;
+    animation-duration: 9s;
+}
+
+.float:nth-child(5) {
+    left: 90%;
+    animation-delay: 3s;
+    animation-duration: 11s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .title {
+        font-size: 1.8em;
+    }
+    
+    .content-box {
+        padding: 20px;
+    }
+    
+    .anime-box h2 {
+        font-size: 1.2em;
+    }
+}
